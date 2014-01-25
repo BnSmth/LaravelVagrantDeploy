@@ -43,11 +43,11 @@ read -e vagrant
 if [[ $vagrant == 'y' ]]
     then
     
-       wget https://raw.github.com/BenBradley/shellscripts/master/Vagrantfile
-       wget https://raw.github.com/BenBradley/shellscripts/master/install.sh
-       wget https://raw.github.com/BenBradley/shellscripts/master/.bash_profile
-       wget https://raw.github.com/BenBradley/shellscripts/master/.bash_aliases
-       wget https://raw.github.com/BenBradley/shellscripts/master/.bash_env
+       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/Vagrantfile
+       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/install.sh
+       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/.bash_profile
+       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/.bash_aliases
+       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/.bash_env
 
        echo -n "--- Port number: (default 8080) ---"
        read -e vagrantport
