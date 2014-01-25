@@ -68,4 +68,10 @@ if [[ $vagrant == 'y' ]]
        echo -n "--- Creating the virtual machine. ---"       
        vagrant up
 fi
+
+# Update .gitignore
+Vagrantfile >> .gitignore
+.vagrant >> .gitignore
+install.sh >> .gitignore
+
 echo -n "--- Fin. ---"
