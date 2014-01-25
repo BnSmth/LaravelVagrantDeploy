@@ -12,7 +12,10 @@ if [[ $generators == "y" ]]
     then
         gsed -i '8 a\ "require-dev" : { "way/generators": "dev-master", "phpunit/phpunit": "3.7.28" },' composer.json
         composer update
-        gsed -i "109 a\ 'Way\\\Generators\\\GeneratorsServiceProvider'," app/config/app.php
+        mkdir -f app/config/development
+        mv app.php app/config/development
+else
+  rm app.php
 fi
 
 # Update app/bootstrap/start.php with env function
