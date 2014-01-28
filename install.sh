@@ -57,6 +57,10 @@ sudo mv composer.phar /usr/local/bin/composer
 echo "--- Change php.ini settings to allow tinker to function correctly. ---"
 sed -i "s/disable_functions = .*/disable_functions = /" /etc/php5/cli/php.ini
 
+echo "--- Set up env vars in default virtual host file. ---"
+sudo rm -rf /etc/apache2/sites-available/000-default.conf
+mv /vagrant/000-default.conf /etc/apache2/sites-available
+
 echo "--- Restarting Apache ---"
 sudo service apache2 restart
 
