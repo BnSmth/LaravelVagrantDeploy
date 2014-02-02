@@ -27,7 +27,7 @@ alias artisan="php artisan"
 alias seed="php artisan db:seed"
 alias rollback="artisan migrate:rollback"
 alias migrate="artisan migrate"
-alias refresh="artisan migrate:refresh"
+alias refresh="artisan migrate:refresh --seed"
 alias tinker="artisan tinker"
 
 #GIT
