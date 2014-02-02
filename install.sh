@@ -50,7 +50,7 @@ sudo service apache2 restart
 
 echo "--- Install composer ---"
 curl -sS https://getcomposer.org/installer | php
-sudo mv composer.phar /usr/local/bin/composer
+sudo cp composer.phar /usr/local/bin/composer
 
 # Laravel specific commands
 
@@ -59,7 +59,7 @@ sed -i "s/disable_functions = .*/disable_functions = /" /etc/php5/cli/php.ini
 
 echo "--- Set up env vars in default virtual host file. ---"
 sudo rm -rf /etc/apache2/sites-available/000-default.conf
-mv /vagrant/000-default.conf /etc/apache2/sites-available
+cp /vagrant/.setup/000-default.conf /etc/apache2/sites-available
 
 echo "--- Restarting Apache ---"
 sudo service apache2 restart
@@ -74,6 +74,6 @@ sed -i "s/'username'  => 'root'/'username'  => getenv('DB_USER')/g" /vagrant/app
 sed -i "s/'password'  => ''/'password'  => getenv('DB_PASSWORD')/g" /vagrant/app/config/database.php
 
 echo "--- Moving bash files---"
-mv /vagrant/.bash_env /home/vagrant
-mv /vagrant/.bash_aliases /home/vagrant
-mv /vagrant/.bash_profile /home/vagrant
+cp /vagrant/.setup/.bash_env /home/vagrant
+cp /vagrant/.setup/.bash_aliases /home/vagrant
+cp /vagrant/.setup/.bash_profile /home/vagrant

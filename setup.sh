@@ -46,12 +46,7 @@ read -e vagrant
 if [[ $vagrant == 'y' ]]
     then
     
-       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/Vagrantfile
-       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/install.sh
-       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/.bash_profile
-       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/.bash_aliases
-       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/.bash_env
-       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/000-default.conf
+       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/.setup
 
        echo -n "--- Port number: (default 8080) ---"
        read -e vagrantport
@@ -67,11 +62,11 @@ if [[ $vagrant == 'y' ]]
        gsed -i "s/DATABASENAME/$databasename/g" install.sh
        gsed -i "s/DATABASEPASSWORD/$databasepassword/g" install.sh
 
-       gsed -i "s/DATABASENAME/$databasename/g" .bash_env
-       gsed -i "s/DATABASEPASSWORD/$databasepassword/g" .bash_env
+       gsed -i "s/DATABASENAME/$databasename/g" .setup/.bash_env
+       gsed -i "s/DATABASEPASSWORD/$databasepassword/g" .setup/.bash_env
 
-       gsed -i "s/DATABASENAME/$databasename/g" 000-default.conf
-       gsed -i "s/DATABASEPASSWORD/$databasepassword/g" 000-default.conf
+       gsed -i "s/DATABASENAME/$databasename/g" .setup/000-default.conf
+       gsed -i "s/DATABASEPASSWORD/$databasepassword/g" .setup/000-default.conf
 
        echo -n "--- Creating the virtual machine. ---"       
        vagrant up
@@ -81,5 +76,6 @@ fi
 Vagrantfile >> .gitignore
 .vagrant >> .gitignore
 install.sh >> .gitignore
+.setup >> .gitignore
 
 echo -n "--- Fin. ---"
