@@ -77,3 +77,6 @@ echo "--- Moving bash files---"
 cp /vagrant/.setup/.bash_env /home/vagrant
 cp /vagrant/.setup/.bash_aliases /home/vagrant
 cp /vagrant/.setup/.bash_profile /home/vagrant
+
+chmod +x /vagrant/.setup/wkhtmltopdf.sh
+./vagrant/.setup/wkhtmltopdf.sh
