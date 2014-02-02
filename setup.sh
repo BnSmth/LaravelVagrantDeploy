@@ -45,8 +45,14 @@ echo -n "--- Would you like to setup a vagrant virtual machine? [y|n] ---"
 read -e vagrant
 if [[ $vagrant == 'y' ]]
     then
-    
-       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/.setup
+       mkdir .setup
+       cd .setup
+       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/.setup/.bash_aliases
+       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/.setup/.bash_env
+       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/.setup/.bash_profile
+       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/.setup/000-default.conf
+       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/.setup/app.php
+       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/.setup/wkhtmltopdf.sh
 
        echo -n "--- Port number: (default 8080) ---"
        read -e vagrantport
