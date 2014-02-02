@@ -53,6 +53,9 @@ if [[ $vagrant == 'y' ]]
        wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/.setup/000-default.conf
        wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/.setup/app.php
        wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/.setup/wkhtmltopdf.sh
+       cd ..
+       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/install.sh
+       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/Vagrantfile
 
        echo -n "--- Port number: (default 8080) ---"
        read -e vagrantport
