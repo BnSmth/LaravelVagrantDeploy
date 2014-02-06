@@ -1,44 +1,50 @@
 #!/bin/bash
 
-echo -n "--- What is the name of this app? ---"
-read appname
-composer create-project laravel/laravel $appname --prefer-dist
-cd $appname
+echo -n "--- Does this app already exist? : [y|n] ---"
+read -e exists
+if [[ $exists == "n" ]]
+  then
 
-# Install and Configure Way/Generators Package
-echo -n "--- Add Generators and PHPUnit to $appname? : [y|n] ---"
-read -e generators
-if [[ $generators == "y" ]]
-    then
-        gsed -i '8 a\ "require-dev" : { "way/generators": "dev-master", "phpunit/phpunit": "3.7.28" },' composer.json
-        composer update
-        mkdir -f app/config/development
-        mv app.php app/config/development
-else
-  rm app.php
-fi
+    echo -n "--- What is the name of this app? ---"
+    read appname
+    composer create-project laravel/laravel $appname --prefer-dist
+    cd $appname
 
-# Update app/bootstrap/start.php with env function
-echo -n "--- Setting up development environment. ---"
-gsed -i -e'27,31d' bootstrap/start.php
-gsed -i "27a\ \$env = \$app->detectEnvironment(function() { return getenv('ENV') ?: 'development'; });" bootstrap/start.php
+    # Install and Configure Way/Generators Package
+    echo -n "--- Add Generators and PHPUnit to $appname? : [y|n] ---"
+    read -e generators
+    if [[ $generators == "y" ]]
+        then
+            gsed -i '8 a\ "require-dev" : { "way/generators": "dev-master", "phpunit/phpunit": "3.7.28" },' composer.json
+            composer update
+            mkdir -f app/config/development
+            mv app.php app/config/development
+    else
+      rm app.php
+    fi
 
-# Create a git repo
-echo -n "--- Creating a git repository. ---"
-git init
-git add .
-git commit -m "Initial commit"
+    # Update app/bootstrap/start.php with env function
+    echo -n "--- Setting up development environment. ---"
+    gsed -i -e'27,31d' bootstrap/start.php
+    gsed -i "27a\ \$env = \$app->detectEnvironment(function() { return getenv('ENV') ?: 'development'; });" bootstrap/start.php
 
-echo -n "--- Would you like to add this repo to Github? [y|n] ---"
-read -e github
-if [[ $github == 'y' ]]
-    then
-        echo -n "--- What is your github username? ---"
-        read githubUsername
-        curl -u "$githubUsername" https://api.github.com/user/repos -d "{\"name\":\"$appname\"}"
+    # Create a git repo
+    echo -n "--- Creating a git repository. ---"
+    git init
+    git add .
+    git commit -m "Initial commit"
 
-        git remote add origin git@github.com:$githubUsername/$appname.git
-        git push origin master
+    echo -n "--- Would you like to add this repo to Github? [y|n] ---"
+    read -e github
+    if [[ $github == 'y' ]]
+        then
+            echo -n "--- What is your github username? ---"
+            read githubUsername
+            curl -u "$githubUsername" https://api.github.com/user/repos -d "{\"name\":\"$appname\"}"
+
+            git remote add origin git@github.com:$githubUsername/$appname.git
+            git push origin master
+    fi
 fi
 
 echo -n "--- Would you like to setup a vagrant virtual machine? [y|n] ---"
@@ -79,12 +85,12 @@ if [[ $vagrant == 'y' ]]
 
        echo -n "--- Creating the virtual machine. ---"       
        vagrant up
-fi
 
-# Update .gitignore
-Vagrantfile >> .gitignore
-.vagrant >> .gitignore
-install.sh >> .gitignore
-.setup >> .gitignore
+       # Update .gitignore
+       echo Vagrantfile >> .gitignore
+       echo .vagrant >> .gitignore
+       echo install.sh >> .gitignore
+       echo .setup >> .gitignore
+fi
 
 echo -n "--- Fin. ---"
