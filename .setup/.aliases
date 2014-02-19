@@ -1,6 +1,9 @@
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
+# Alias ~ to the vagrant home directory.
+alias ~="cd /vagrant"
+
 #Command line todo
 alias todo="cat /etc/motd && echo "
 alias edto="sublime /etc/motd"

@@ -85,6 +85,7 @@ if [[ $vagrant == 'y' ]]
        vagrant up
 
        # Update .gitignore
+       echo "\n" >> .gitignore
        echo Vagrantfile >> .gitignore
        echo .vagrant >> .gitignore
        echo install.sh >> .gitignore
