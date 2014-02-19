@@ -53,15 +53,13 @@ if [[ $vagrant == 'y' ]]
     then
        mkdir .setup
        cd .setup
-       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/.setup/.bash_aliases
-       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/.setup/.bash_env
-       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/.setup/.bash_profile
-       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/.setup/000-default.conf
-       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/.setup/app.php
-       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/.setup/wkhtmltopdf.sh
+       wget https://raw.github.com/BenBradleySmith/LaravelVagrantDeploy/master/.setup/000-default.conf
+       wget https://raw.github.com/BenBradleySmith/LaravelVagrantDeploy/master/.setup/app.php
+       wget https://raw.github.com/BenBradleySmith/LaravelVagrantDeploy/master/.setup/.aliases
+       wget https://raw.github.com/BenBradleySmith/LaravelVagrantDeploy/master/.setup/.bash_env
        cd ..
-       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/install.sh
-       wget https://raw.github.com/BenBradley/LaravelVagrantDeploy/master/Vagrantfile
+       wget https://raw.github.com/BenBradleySmith/LaravelVagrantDeploy/master/install.sh
+       wget https://raw.github.com/BenBradleySmith/LaravelVagrantDeploy/master/Vagrantfile
 
        echo -n "--- Port number: (default 8080) ---"
        read -e vagrantport

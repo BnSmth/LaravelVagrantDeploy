@@ -26,7 +26,6 @@ echo "--- Installing and configuring Xdebug ---"
 sudo apt-get install -y php5-xdebug
 
 cat << EOF | sudo tee -a /etc/php5/mods-available/xdebug.ini
-xdebug.scream=1
 xdebug.cli_color=1
 xdebug.show_local_vars=1
 EOF
@@ -37,7 +36,6 @@ sudo a2enmod rewrite
 echo "--- Setting document root ---"
 sudo rm -rf /var/www
 sudo ln -fs /vagrant/public /var/www
-
 
 echo "--- Turn errors on. ---"
 sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php5/apache2/php.ini
@@ -73,9 +71,11 @@ sed -i "s/'database'  => 'database'/'database'  => getenv('DB_NAME')/g" /vagrant
 sed -i "s/'username'  => 'root'/'username'  => getenv('DB_USER')/g" /vagrant/app/config/database.php
 sed -i "s/'password'  => ''/'password'  => getenv('DB_PASSWORD')/g" /vagrant/app/config/database.php
 
-echo "--- Moving bash files---"
-cp /vagrant/.setup/.bash_env /home/vagrant
-cp /vagrant/.setup/.bash_aliases /home/vagrant
-cp /vagrant/.setup/.bash_profile /home/vagrant
+echo "--- Installing oh-my-zsh ---"
+sudo apt-get install -y zsh
+sudo su - vagrant -c 'wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh'
+chsh vagrant -s $(which zsh);
 
-chmod +x /vagrant/.setup/wkhtmltopdf.sh
+echo "--- Moving shell files---"
+cp /vagrant/.setup/.bash_env /home/vagrant
+cp /vagrant/.setup/.aliases /home/vagrant

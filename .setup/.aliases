@@ -1,0 +1,85 @@
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
+#Command line todo
+alias todo="cat /etc/motd && echo "
+alias edto="sublime /etc/motd"
+
+# Shortcuts
+alias dev="cd ~/Documents/Developer"
+alias down="cd ~/Downloads"
+alias doc="cd ~/Documents"
+
+# Project Shortcuts
+alias ben="cd ~/Documents/Developer/bensmith.io"
+alias tj="cd ~/Documents/Developer/tjpropman.com"
+
+# Alias composer to use HHVM
+alias composer="hhvm -v ResourceLimit.SocketDefaultTimeout=30 -v Http.SlowQueryThreshold=30000 /usr/local/bin/composer"
+
+# ARTISAN
+alias artisan="php artisan"
+alias seed="php artisan db:seed"
+alias rollback="artisan migrate:rollback"
+alias migrate="artisan migrate"
+alias refresh="artisan migrate:refresh --seed"
+alias migrate:make="artisan migrate:make"
+alias tinker="artisan tinker"
+
+# Way/Generators
+alias generate:controller="artisan generate:controller"
+alias generate:form="artisan generate:form"
+alias generate:migration="artisan generate:migration"
+alias generate:model="artisan generate:model"
+alias generate:pivot="artisan generate:pivot"
+alias generate:resource="artisan generate:resource"
+alias generate:scaffold="artisan generate:scaffold"
+alias generate:seed="artisan generate:seed"
+alias generate:test="artisan generate:test"
+alias generate:view="artisan generate:view"
+
+#GIT
+alias gs="git status"
+alias gaa="git add ."
+alias ga="git add"
+alias gc="git commit -m "
+alias gl="git log"
+alias glo="git log --oneline"
+alias gp="git push"
+alias gcl='git clone'
+
+#PHPUnit
+alias t="phpunit"
+
+# Vagrant
+alias vs="vagrant status"
+alias vd="vagrant destroy"
+alias vu="vagrant up"
+alias vh="vagrant halt"
+alias vssh="vagrant ssh"
+alias vsus="vagrant suspend"
+alias vr="vagrant resume"
+
+# Open current directory in finder
+alias f='open -a Finder .'
+
+# Alias to copy the sshkey to clipboard.
+alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied to clipboard.'"
+
+# Set up a vaprobash file
+alias vaprobash="curl -L http://bit.ly/vaprobash > Vagrantfile"
+
+# IP address
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+
+# Open zshconfig in sublime
+alias zshconfig="sublime ~/.zshrc"
+
+# ctags
+alias tag="ctags -R -f .tags"export PATH=/usr/local/sbin:$PATH
+
+# list dotfiles
+alias lsdot="ls -a | egrep '^\.'"
