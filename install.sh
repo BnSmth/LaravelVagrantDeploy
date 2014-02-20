@@ -77,5 +77,5 @@ sudo su - vagrant -c 'wget https://github.com/robbyrussell/oh-my-zsh/raw/master/
 chsh vagrant -s $(which zsh);
 
 echo "--- Moving shell files---"
-cp /vagrant/.setup/.bash_env /home/vagrant
+cp /vagrant/.setup/.zshenv /home/vagrant
 cp /vagrant/.setup/.aliases /home/vagrant
