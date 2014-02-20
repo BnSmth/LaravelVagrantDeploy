@@ -56,7 +56,7 @@ if [[ $vagrant == 'y' ]]
        wget https://raw.github.com/BenBradleySmith/LaravelVagrantDeploy/master/.setup/000-default.conf
        wget https://raw.github.com/BenBradleySmith/LaravelVagrantDeploy/master/.setup/app.php
        wget https://raw.github.com/BenBradleySmith/LaravelVagrantDeploy/master/.setup/.aliases
-       wget https://raw.github.com/BenBradleySmith/LaravelVagrantDeploy/master/.setup/.bash_env
+       wget https://raw.github.com/BenBradleySmith/LaravelVagrantDeploy/master/.setup/.zshenv
        cd ..
        wget https://raw.github.com/BenBradleySmith/LaravelVagrantDeploy/master/install.sh
        wget https://raw.github.com/BenBradleySmith/LaravelVagrantDeploy/master/Vagrantfile
