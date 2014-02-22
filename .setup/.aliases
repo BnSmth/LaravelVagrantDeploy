@@ -17,9 +17,6 @@ alias doc="cd ~/Documents"
 alias ben="cd ~/Documents/Developer/bensmith.io"
 alias tj="cd ~/Documents/Developer/tjpropman.com"
 
-# Alias composer to use HHVM
-alias composer="hhvm -v ResourceLimit.SocketDefaultTimeout=30 -v Http.SlowQueryThreshold=30000 /usr/local/bin/composer"
-
 # ARTISAN
 alias artisan="php artisan"
 alias seed="php artisan db:seed"
