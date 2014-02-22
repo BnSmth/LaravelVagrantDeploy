@@ -75,8 +75,8 @@ if [[ $vagrant == 'y' ]]
        gsed -i "s/DATABASENAME/$databasename/g" install.sh
        gsed -i "s/DATABASEPASSWORD/$databasepassword/g" install.sh
 
-       gsed -i "s/DATABASENAME/$databasename/g" .setup/.bash_env
-       gsed -i "s/DATABASEPASSWORD/$databasepassword/g" .setup/.bash_env
+       gsed -i "s/DATABASENAME/$databasename/g" .setup/.zshenv
+       gsed -i "s/DATABASEPASSWORD/$databasepassword/g" .setup/.zshenv
 
        gsed -i "s/DATABASENAME/$databasename/g" .setup/000-default.conf
        gsed -i "s/DATABASEPASSWORD/$databasepassword/g" .setup/000-default.conf
